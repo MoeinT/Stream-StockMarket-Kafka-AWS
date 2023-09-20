@@ -53,7 +53,14 @@ On AWS, use Terraform to provision the necessary resources:
 - Set up AWS Glue Crawlers to crawl the S3 bucket containing the raw data.
 - Define an IAM role with the "AmazonS3FullAccess" and "AWSGlueServiceRole" policies to allow interaction with the S3 bucket.
 
-We also established a CI/CD pipeline using GitHub Actions and Terraform, storeed the tfstate file in an S3 bucket for remote backend management.
+## Terraform CI/CD with GitHub Actions
+We used infrastructured as code (IaC) with Terraform to create and manage the required infrastructure in AWS using a CI/CD pipeline in Github Actions. The following resources have been provisioned: 
+
+- **S3 Bucket:** An S3 bucket is created for storing raw data with server-side encryption configured.
+
+- **Glue Crawlers:** AWS Glue Crawlers are set up to crawl the S3 bucket containing the raw data.
+
+- **IAM Role:** An IAM role is defined with the "S3 Full Access" policy, allowing interaction with the S3 bucket.
 
 ## Conclusion
 This project demonstrates the complete process of setting up a Kafka data pipeline with AWS integration. It showcases the use of Apache Kafka, Python programming, Terraform infrastructure as code, and CI/CD automation with GitHub Actions. By following these steps, you can efficiently process and analyze stock market data using a robust and scalable data pipeline.
