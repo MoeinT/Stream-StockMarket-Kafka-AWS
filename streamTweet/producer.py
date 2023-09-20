@@ -4,6 +4,7 @@ import json
 import time
 import pytz
 import tweepy
+import urllib.parse
 
 class MyStream(tweepy.StreamingClient):
     def __init__(self, bearer_token, **kwargs):
@@ -59,8 +60,8 @@ if __name__ == "__main__":
     # Initial config
     config = configparser.ConfigParser(interpolation=None)
     config.read("../config.ini")
+    # bearer_token = urllib.parse.unquote(config["stock"]["bearer_token"])
     bearer_token = config["stock"]["bearer_token"]
-
     # Search terms
     search_terms = [
         "(Spark OR Kafka OR Python OR #DataEngineering OR #Airflow OR #Databricks OR #Databricks)"

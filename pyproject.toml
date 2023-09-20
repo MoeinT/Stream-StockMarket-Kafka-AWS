@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 confluent-kafka = "^2.2.0"
-boto3 = "^1.28.50"
+boto3 = "^1.28.51"
 configparser = "^6.0.0"
 black = "^23.9.1"
 isort = "^5.12.0"
