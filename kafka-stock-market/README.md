@@ -18,7 +18,7 @@ Below is the project architecture. Here's an overview of the architecture:
 - 5: Ran a Glue Catalog and integrated the Raw data into AWS Glue and analyzed it using AWS Athena and SQL
 
 <p align="center">
-  <img width="500" height="350" src=./assets/ArchitectureStockMarket.PNG>
+  <img width="500" height="350" src=./assets/Architecture.PNG>
 </p>
 
 ## Step 1: Source Data
