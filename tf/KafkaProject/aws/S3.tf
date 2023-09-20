@@ -6,10 +6,6 @@ module "S3Buckets" {
     "stock-market" = {
       "bucket"        = "stock-market-${var.env}",
       "force_destroy" = false
-    },
-    "stock-market-test" = {
-      "bucket"        = "stock-market-test-${var.env}",
-      "force_destroy" = false
     }
   }
 }
