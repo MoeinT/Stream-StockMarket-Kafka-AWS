@@ -1,0 +1,40 @@
+name: 'Terraform'
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - '**.tf'
+
+env:
+  TF_LOG: INFO
+
+jobs:
+  Terraform-Staging:
+    name: 'Deploying to staging'
+    runs-on: ubuntu-latest
+    environment: staging
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./tf/KafkaProject
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2 
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.2.5
+
+    - name: Initializing the staging backend
+      id: init
+      run: terraform init -backend-config="access_key=${{ secrets.AWS_ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.AWS_SECRET_KEY }}"
+  
+    - name: Deploy to Staging
+      id: plan
+      env:
+        TF_VAR_access_key:         ${{ secrets.AWS_ACCESS_KEY }}
+        TF_VAR_secret_key:         ${{ secrets.AWS_SECRET_KEY }}
+      run: terraform apply -auto-approve -var="env=staging"
