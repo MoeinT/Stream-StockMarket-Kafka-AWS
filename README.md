@@ -40,10 +40,10 @@ Using the Kafka CLI, we create a Kafka topic with 3 partitions and a replication
 kafka-topics --create --topic <topic_name> --partitions 3 --replication-factor 1 --if-not-exists --bootstrap-server <server_name>
 ```
 
-## Step 4: Develop the Producer Module
+## Step 4: Producer
 Create a Python producer module to send each record in the CSV file as a JSON message into the Kafka topic. You can use the confluent_kafka package for Kafka integration. Additionally, we have used poetry as our virtual environment to manage the dependencies. Find this module under the ```./kafka-producer``` directory.
 
-## Step 5: Develop the Consumer Module
+## Step 5: Consumer
 Create a Python consumer module to consume messages from the Kafka topic. Send each message to an AWS S3 bucket programmatically using the boto3 package. Find this module under the ```./kafka-consumer``` directory.
 
 ## Step 6: AWS Integration
